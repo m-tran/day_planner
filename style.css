@@ -3,6 +3,7 @@ body {
   font-size: 16px;
   line-height: 1;
   background-color: #f0f0f0;
+  cursor: none;
 }
 
 h1 {
@@ -146,6 +147,13 @@ textarea{
     height: 2rem;
     border: 1px solid #777;
     transition: transform .5s ease, opacity .35s ease;
+}
+
+.cursor-dot {
+  size: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: $primary;
 }
 
 @media only screen and (max-width: 600px) {
