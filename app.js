@@ -90,7 +90,7 @@ $(document).ready(function () {
 
         // once saved, show alert
         $showAlert.text("Well done! Your entry has been saved.");
-        $showAlert.fadeTo(2000, 500).slideUp(500, function(){
+        $showAlert.fadeTo(4000, 500).slideUp(500, function(){
             $showAlert.slideUp(500);
         });
     });
