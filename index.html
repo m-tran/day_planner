@@ -9,17 +9,22 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <title>Work Day Scheduler</title>
+  <title>Work Day Scheduler.</title>
 </head>
 
 <body>
-  <header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler</h1>
-    <p class="lead">A simple calendar app for scheduling your work day</p>
-    <p id="currentDay" class="lead"></p>
+  <header class="jumbotron offset-sm-1 col-sm-10">
+    <h1>Work Day Scheduler.</h1>
+    <br>
+    <br>
+    <p>A simple calendar app for scheduling your work day.</p>
+    <p id="currentDay"></p>
   </header>
-  <div class="container" id="timeblockCtn">
+  <div id="dailyQuote" class="offset-sm-1 col-sm-10 quote"></div>
+  <div id="showAlert" class="alert alert-dark offset-sm-1 col-sm-5" role="alert"></div>
+  <div class="container offset-sm-1 col-sm-10" id="timeblockCtn">
     <!-- Timeblocks go here -->
   </div>
 

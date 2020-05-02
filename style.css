@@ -1,7 +1,26 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'PT Serif', serif;
   font-size: 16px;
   line-height: 1;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  font-family: 'PT Serif', serif;
+  font-size: 48px;
+  line-height: 1;
+}
+
+h2 {
+  font-family: 'PT Serif', serif;
+  font-size: 18px;
+  color: #bbbbbb;
+}
+
+p {
+  font-family: 'PT Serif', serif;
+  font-size: 22px;
+  line-height: 1.25;
 }
 
 textarea{
@@ -11,14 +30,18 @@ textarea{
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  background-color: #f0f0f0 !important;
 }
 
 .jumbotron {
-  text-align: center;
+  text-align: left;
   background-color: transparent;
   color: black;
-  border-radius: 0;
-  border-bottom: 10px solid black;
+  padding-left: 0;
+  margin-bottom: 3rem;
+  padding-bottom: 0;
+  /* border-radius: 0;
+  border-bottom: 10px solid black; */
 }
 
 .description{
@@ -26,7 +49,7 @@ textarea{
 }
 
 .time-block{
-  text-align: center;
+  text-align: left;
   border-radius: 15px;
 }
 
@@ -74,9 +97,30 @@ textarea{
 
 .container {
   margin-bottom: 1em;
+  padding: 0;
 }
 
 .form-group label {
   padding: 0 0 0 1em !important;
   margin-top: calc(1.5em + .75rem + 2px);
+}
+
+.card {
+  border-radius: 1.5rem;
+  border: none;
+  background-color: #f0f0f0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  padding: 0 1.25rem 0 1.25rem;
+}
+
+.row {
+  border-top: none;
+}
+
+.quote {
+  padding: 0;
+  margin-bottom: 3rem;
 }

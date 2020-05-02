@@ -2,8 +2,13 @@ $(document).ready(function () {
 
     var $currentDay = $("#currentDay");
     var $timeblockCtn = $("#timeblockCtn");
+    var $showAlert = $("#showAlert");
+    var $dailyQuote = $("#dailyQuote");
     var textInput = "";
     var greetingTime = "";
+    var quote = "";
+
+    $showAlert.hide();
 
     // add time-based user greeting (morning, afternoon, evening)
     if (moment().hour() >= 17) {
@@ -34,11 +39,11 @@ $(document).ready(function () {
                     <div class="card-body">
                         <form>
                             <div class="form-group row">
-                                <label for="inputEvent" class="col-sm-2 col-form-label">${myDay.hour[i]}</label>
-                                <div class="col-sm-8" id="textArea">
+                                <label for="inputEvent" class="col-sm-1 col-form-label">${myDay.hour[i]}</label>
+                                <div class="col-sm-10" id="textArea">
                                     <textarea data-id="${i}" id="inputEvent" class="form-control" type="text" rows="1"></textarea>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <button data-id="${i}" type="submit" class="btn btn-dark mb-2">+</button>
                                 </div>
                             </div>
@@ -50,6 +55,16 @@ $(document).ready(function () {
             $timeblockCtn.html(timeblocks.join("<br>"));
         };
     }
+
+    // get quote of the day
+    $.ajax({
+        type: "GET",
+        url: "http://quotes.rest/qod.json",
+    }).then(function(response){
+        console.log(response.contents.quotes[0].quote);
+        quote = response.contents.quotes[0].quote;
+        $dailyQuote.html(`<h2><i>"${quote}"</i></h2>`);
+    }); 
 
     makeTimeblock();
 
@@ -73,12 +88,14 @@ $(document).ready(function () {
         textInput = $(this).parent().siblings("#textArea").find("textarea").val();
         localStorage.setItem(`${$(this).data("id")}`, textInput);
 
-        // once saved, turn '+' into a checkmark, ease transition
+        // once saved, show alert
+        $showAlert.text("Well done! Your entry has been saved.");
+        $showAlert.fadeTo(2000, 500).slideUp(500, function(){
+            $showAlert.slideUp(500);
+        });
     });
 
     // create function that shows past/present/future
-    console.log(moment().hour());
-    // console.log($(".card").css());
     var currentHour = myDay.hourInt;
     for (let i=0; i < myDay.hourInt.length; i++) {
         if (moment().hour() > currentHour[i]) {
