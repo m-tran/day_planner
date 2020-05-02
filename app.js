@@ -3,10 +3,18 @@ $(document).ready(function () {
     var $currentDay = $("#currentDay");
     var $timeblockCtn = $("#timeblockCtn");
     var textInput = "";
+    var greetingTime = "";
 
     // add time-based user greeting (morning, afternoon, evening)
+    if (moment().hour() >= 17) {
+        greetingTime = "evening";
+    } else if (moment().hour() >= 12) {
+        greetingTime = "afternoon";
+    } else {
+        greetingTime = "morning";
+    }
 
-    $currentDay.text(`Today is ${moment().format("dddd, MMMM Do.")}`);
+    $currentDay.text(`Good ${greetingTime}. Today is ${moment().format("dddd, MMMM Do.")}`);
 
     // create object for each time block entry
     var myDay = {
@@ -59,16 +67,17 @@ $(document).ready(function () {
         }
     }
 
-// save timeblock text input to local storage when clicking submit
+    // save timeblock text input to local storage when clicking submit
     $(document).on("click", ".btn", function(e) {
         e.preventDefault();
         textInput = $(this).parent().siblings("#textArea").find("textarea").val();
         localStorage.setItem(`${$(this).data("id")}`, textInput);
+
+        // once saved, turn '+' into a checkmark, ease transition
     });
 
-// once saved, turn '+' into a checkmark, ease transition
-
-// create function that shows past/present/future
+    // create function that shows past/present/future
+    console.log(moment().hour());
 
 });
 
