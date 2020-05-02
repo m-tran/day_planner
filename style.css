@@ -147,3 +147,15 @@ textarea{
     border: 1px solid #777;
     transition: transform .5s ease, opacity .35s ease;
 }
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 1em;
+  }
+  
+  .card {
+    display: inline-block;
+    height: 250px;
+    margin-bottom: 1em;
+  }
+}

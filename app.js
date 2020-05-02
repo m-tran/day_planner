@@ -40,7 +40,7 @@ $(document).ready(function () {
                         <form>
                             <div class="form-group row">
                                 <label for="inputEvent" class="col-sm-1 col-form-label">${myDay.hour[i]}</label>
-                                <div class="col-sm-10" id="textArea">
+                                <div class="col-md-10" id="textArea">
                                     <textarea data-id="${i}" id="inputEvent" class="form-control" type="text" rows="1"></textarea>
                                 </div>
                                 <div class="col-sm-1">
