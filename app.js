@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var $currentDay = $("#currentDay");
     var $timeblockCtn = $("#timeblockCtn");
+    var textInput = "";
 
     // add time-based user greeting (morning, afternoon, evening)
 
@@ -26,11 +27,11 @@ $(document).ready(function () {
                         <form>
                             <div class="form-group row">
                                 <label for="inputEvent" class="col-sm-2 col-form-label">${myDay.hour[i]}</label>
-                                <div class="col-sm-8">
-                                    <textarea id="inputEvent" class="form-control" type="text" rows="1"></textarea>
+                                <div class="col-sm-8" id="textArea">
+                                    <textarea data-id="${i}" id="inputEvent" class="form-control" type="text" rows="1"></textarea>
                                 </div>
                                 <div class="col-sm-2">
-                                    <button type="submit" class="btn btn-dark mb-2">+</button>
+                                    <button data-id="${i}" type="submit" class="btn btn-dark mb-2">+</button>
                                 </div>
                             </div>
                         </form>
@@ -44,9 +45,13 @@ $(document).ready(function () {
 
     makeTimeblock();
 
-// create something that takes in text input inside time block
 
-// create function that saves timeblock text input to local storage
+// save timeblock text input to local storage when clicking submit
+    $(document).on("click", ".btn", function(e) {
+        e.preventDefault();
+        textInput = $(this).parent().siblings("#textArea").find("textarea").val();
+        localStorage.setItem(`content-${$(this).data("id")}`, textInput);
+    });
 
 // once saved, turn '+' into a checkmark, ease transition
 
