@@ -99,9 +99,11 @@ $(document).ready(function () {
     var currentHour = myDay.hourInt;
     for (let i = 0; i < myDay.hourInt.length; i++) {
         if (moment().hour() > currentHour[i]) {
-            $(`.card[data-id="${i}"`).attr("style", "background-color: #BCBCBC !important;");
+            $(`.card[data-id="${i}"]`).attr("style", "background-color: #BCBCBC !important;");
+            $(`textarea[data-id="${i}"]`).attr("style", "background-color: #BCBCBC !important;");
         } else if (moment().hour() === currentHour[i]) {
-            $(`.card[data-id="${i}"`).attr("style", "background-color: #FFFFFF !important; border: 3px solid #000000;");
+            $(`.card[data-id="${i}"]`).attr("style", "background-color: #FFFFFF !important; border: 3px solid #000000;");
+            $(`textarea[data-id="${i}"]`).attr("style", "background-color: #FFFFFF !important;");
         };
     };
 

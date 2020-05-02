@@ -137,7 +137,6 @@ textarea{
   border-radius: 50%;
   pointer-events: none;
   z-index: 1000;
-  cursor: crosshair;
 }
 
 .cursor div {
