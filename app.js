@@ -45,12 +45,25 @@ $(document).ready(function () {
 
     makeTimeblock();
 
+    // load saved event if exists on document load
+    function checkItemExists (id) {
+        if (localStorage.getItem(id) !== null) {
+            textInput = localStorage.getItem(`${id}`);
+            $(`textarea[data-id="${id}"`).val(textInput);
+        }
+    }
+
+    if (window.localStorage.length !== 0) {
+        for (let i=0; i < myDay.hour.length; i++) {
+            checkItemExists(i);
+        }
+    }
 
 // save timeblock text input to local storage when clicking submit
     $(document).on("click", ".btn", function(e) {
         e.preventDefault();
         textInput = $(this).parent().siblings("#textArea").find("textarea").val();
-        localStorage.setItem(`content-${$(this).data("id")}`, textInput);
+        localStorage.setItem(`${$(this).data("id")}`, textInput);
     });
 
 // once saved, turn '+' into a checkmark, ease transition
