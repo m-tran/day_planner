@@ -19,7 +19,7 @@ $(document).ready(function () {
     // create object for each time block entry
     var myDay = {
         hour: ["9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"],
-        event: "",
+        hourInt: [9, 10, 11, 12, 13, 14, 15, 16, 17],
     };
 
     // create function that builds timeblocks
@@ -78,7 +78,17 @@ $(document).ready(function () {
 
     // create function that shows past/present/future
     console.log(moment().hour());
-
+    // console.log($(".card").css());
+    var currentHour = myDay.hourInt;
+    for (let i=0; i < myDay.hourInt.length; i++) {
+        if (moment().hour() > currentHour[i]) {
+            $(`.card[data-id="${i}"`).attr("style", "background-color: #BCBCBC !important;");
+        } else if (moment().hour() === currentHour[i]) {
+            $(`.card[data-id="${i}"`).attr("style", "background-color: #FFFFFF !important; border: 3px solid #000000;");
+        };
+    };
+    
+    
 });
 
 
