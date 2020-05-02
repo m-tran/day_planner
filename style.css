@@ -124,3 +124,7 @@ textarea{
   padding: 0;
   margin-bottom: 3rem;
 }
+
+.btn:hover {
+  background-color: #929191;
+}
