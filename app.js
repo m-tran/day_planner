@@ -59,7 +59,7 @@ $(document).ready(function () {
     // get quote of the day
     $.ajax({
         type: "GET",
-        url: "http://quotes.rest/qod.json",
+        url: "https://quotes.rest/qod.json",
     }).then(function (response) {
         console.log(response.contents.quotes[0].quote);
         quote = response.contents.quotes[0].quote;
